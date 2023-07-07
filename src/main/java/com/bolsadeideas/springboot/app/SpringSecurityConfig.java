@@ -124,7 +124,7 @@ public class SpringSecurityConfig {
         AuthenticationManager authenticationManager =  authenticationManagerBuilder.build();*/
 
 		http.authorizeHttpRequests(authz -> authz
-    		.requestMatchers("/", "/css/**", "/js/**", "/images/**", "/listar").permitAll()
+    		.requestMatchers("/", "/css/**", "/js/**", "/images/**", "/listar", "/locale").permitAll()
             /*.requestMatchers("/ver/**").hasAnyRole("USER")
             .requestMatchers("/uploads/**").hasAnyRole("USER")
             .requestMatchers("/form/**").hasAnyRole("ADMIN")
