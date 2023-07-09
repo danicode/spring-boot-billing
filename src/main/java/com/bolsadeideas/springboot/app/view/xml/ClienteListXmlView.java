@@ -5,7 +5,6 @@ import java.util.Map;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Component;
@@ -16,7 +15,6 @@ import com.bolsadeideas.springboot.app.models.entity.Cliente;
 @Component("listar.xml")
 public class ClienteListXmlView extends MarshallingView {
 
-	@Autowired
 	public ClienteListXmlView(Jaxb2Marshaller marshaller) {
 		super(marshaller);
 	}

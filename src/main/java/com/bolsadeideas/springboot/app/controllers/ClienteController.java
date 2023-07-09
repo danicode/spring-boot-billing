@@ -105,7 +105,7 @@ public class ClienteController {
 		return "ver";
 	}
 
-	@RequestMapping(value = { "/listar", "/" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/listar", "/" }, method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public String listar(@RequestParam(name = "page", defaultValue = "0") int page, Model model,
 			Authentication authentication, HttpServletRequest request, Locale locale) {
 
