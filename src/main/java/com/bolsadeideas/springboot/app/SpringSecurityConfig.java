@@ -123,13 +123,13 @@ public class SpringSecurityConfig {
         // Get AuthenticationManager
         AuthenticationManager authenticationManager =  authenticationManagerBuilder.build();*/
 
-		http.authorizeHttpRequests(authz -> authz
-    		.requestMatchers("/", "/css/**", "/js/**", "/images/**", "/listar", "/locale").permitAll()
+		/*http.authorizeHttpRequests(authz -> authz
+    		.requestMatchers("/", "/css/**", "/js/**", "/images/**", "/listar", "/listarx", "/locale").permitAll()
             /*.requestMatchers("/ver/**").hasAnyRole("USER")
             .requestMatchers("/uploads/**").hasAnyRole("USER")
             .requestMatchers("/form/**").hasAnyRole("ADMIN")
             .requestMatchers("/eliminar/**").hasAnyRole("ADMIN")
-            .requestMatchers("/factura/**").hasAnyRole("ADMIN")*/
+            .requestMatchers("/factura/**").hasAnyRole("ADMIN")
             .anyRequest().authenticated()
         )
 		//.authenticationManager(authenticationManager)
@@ -143,7 +143,8 @@ public class SpringSecurityConfig {
     		.permitAll()
 		).exceptionHandling((exceptionHandling) -> exceptionHandling
 			.accessDeniedPage("/error_403")
-		);
+		);*/
+		http.authorizeHttpRequests(authz -> authz.anyRequest().permitAll());
 
 		return http.build();
 	}
