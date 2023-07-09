@@ -2,6 +2,8 @@ package com.bolsadeideas.springboot.app.models.entity;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,8 @@ public class ItemFactura implements Serializable {
 	private Integer cantidad;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	//@ManyToOne(fetch = FetchType.EAGER) // para exportar a json
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // para exporta json pero con carga perezosa. Esta anotacion puede ir aca o sino sobre la clase producto entity
 	@JoinColumn(name = "producto_id")
 	private Producto producto;
 
