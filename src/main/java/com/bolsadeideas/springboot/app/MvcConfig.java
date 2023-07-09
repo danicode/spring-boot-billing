@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -77,6 +78,13 @@ public class MvcConfig implements WebMvcConfigurer {
 		// por [ultimo debemos registrar el interceptor de cambio de 
 		// idioma
 		registry.addInterceptor(localeChangeInterceptor());
+	}
+	
+	@Bean
+	public Jaxb2Marshaller jaxb2Marshaller() {
+		Jaxb2Marshaller marshaller =  new Jaxb2Marshaller();
+		marshaller.setClassesToBeBound(new Class[] {com.bolsadeideas.springboot.app.view.xml.ClienteList.class});
+		return marshaller;
 	}
 	
 }
