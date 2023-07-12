@@ -134,6 +134,37 @@
 			"response": []
 		},
 		{
+			"name": "Obtener lista clientes formato JSON 4 con Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6Ilt7XCJhdXRob3JpdHlcIjpcIlJPTEVfQURNSU5cIn0se1wiYXV0aG9yaXR5XCI6XCJST0xFX1VTRVJcIn1dIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE2ODkxOTk3MTQsImV4cCI6MTY4OTIxNDExNH0.prtbWXRX7RvUqwp4W2cq27wGknj3HN47vpr5TGEpBQyB_pqUoXJR70Xv5N1VJvAxZwU97abLT0UY6FN7k447Ew",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clientes/listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clientes",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Obtener lista clientes formato XML 2",
 			"request": {
 				"method": "GET",
@@ -202,6 +233,35 @@
 							"key": "format",
 							"value": "xml"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
 					]
 				}
 			},
