@@ -38,17 +38,29 @@ public class ClienteServiceImpl implements IClienteService {
 		return (List<Cliente>) clienteDao.findAll();
 	}
 
-	@Override
+	/*@Override
 	@Transactional
 	public void save(Cliente cliente) {
 		clienteDao.save(cliente);
 
+	}*/
+	
+	@Override
+	@Transactional
+	public Cliente save(Cliente cliente) {
+		return clienteDao.save(cliente);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public Cliente findOne(Long id) {
 		// TODO Auto-generated method stub
+		return clienteDao.findById(id).orElse(null);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Cliente findById(Long id) {
 		return clienteDao.findById(id).orElse(null);
 	}
 	

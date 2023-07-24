@@ -4,18 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-//import com.bolsadeideas.springboot.app.auth.filter.JWTAuthenticationFilter;
-//import com.bolsadeideas.springboot.app.auth.filter.JWTAuthorizationFilter;
-import com.bolsadeideas.springboot.app.auth.handler.LoginSuccessHandler;
-//import com.bolsadeideas.springboot.app.auth.service.JWTService;
+import com.bolsadeideas.springboot.app.auth.filter.JWTAuthenticationFilter;
+import com.bolsadeideas.springboot.app.auth.filter.JWTAuthorizationFilter;
+//import com.bolsadeideas.springboot.app.auth.handler.LoginSuccessHandler;
+import com.bolsadeideas.springboot.app.auth.service.JWTService;
 import com.bolsadeideas.springboot.app.models.service.JpaUserDetailsService;
 
 @Configuration
@@ -23,8 +23,8 @@ import com.bolsadeideas.springboot.app.models.service.JpaUserDetailsService;
 @EnableMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SpringSecurityConfig {
 	
-	@Autowired
-	private LoginSuccessHandler successHandler;
+	//@Autowired
+	//private LoginSuccessHandler successHandler;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -32,11 +32,11 @@ public class SpringSecurityConfig {
 	 @Autowired
      private JpaUserDetailsService userDetailService;
 	 
-	 //@Autowired
-     //private AuthenticationConfiguration authenticationConfiguration;
+	 @Autowired
+     private AuthenticationConfiguration authenticationConfiguration;
 	 
-	 //@Autowired
-	 //private JWTService jwtService;
+	 @Autowired
+	 private JWTService jwtService;
 	 
 	 @Autowired
 	 public void userDetailsService(AuthenticationManagerBuilder build) throws Exception {
@@ -47,10 +47,10 @@ public class SpringSecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-		/**http.csrf(
+		http.csrf(
 			csrf -> csrf.disable()
 		).authorizeHttpRequests(authz -> authz
-    		.requestMatchers("/", "/css/**", "/js/**", "/images/**", "/listar**", "/listarx", "/locale", "/api/clientes/listar**").permitAll()
+    		.requestMatchers("/", "/css/**", "/js/**", "/images/**", "/listar**", "/listarx", "/locale", "/api/clientes/**").permitAll()
         )
 	    .addFilter(
     		new JWTAuthenticationFilter(authenticationConfiguration.getAuthenticationManager(), jwtService)
@@ -62,9 +62,9 @@ public class SpringSecurityConfig {
 			session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		);
 
-		return http.build();*/
+		return http.build();
 		
-		http.authorizeHttpRequests(authz -> authz
+		/*http.authorizeHttpRequests(authz -> authz
 	    		.requestMatchers("/", "/css/**", "/js/**", "/images/**", "/listar", "/locale").permitAll()
 	            .anyRequest().authenticated()
 	        )
@@ -80,7 +80,7 @@ public class SpringSecurityConfig {
 				.accessDeniedPage("/error_403")
 			);
 
-			return http.build();
+			return http.build();*/
 	}
 	
 }

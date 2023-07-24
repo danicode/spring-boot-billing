@@ -15,9 +15,13 @@ public interface IClienteService {
 
 	public Page<Cliente> findAll(Pageable pageable);
 
-	public void save(Cliente cliente);
+	//public void save(Cliente cliente);
+	
+	public Cliente save(Cliente cliente);
 
 	public Cliente findOne(Long id);
+	
+	public Cliente findById(Long id);
 	
 	public Cliente fetchByIdWithFacturas(Long id);
 
