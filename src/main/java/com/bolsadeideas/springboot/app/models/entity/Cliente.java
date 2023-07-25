@@ -13,13 +13,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.PrePersist;
+//import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-//import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -46,7 +46,7 @@ public class Cliente implements Serializable {
 	@Email
 	private String email;
 
-	//@NotNull
+	@NotNull(message = "No puede estar vacío")
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -65,12 +65,12 @@ public class Cliente implements Serializable {
 		facturas = new ArrayList<Factura>();
 	}
 
-	@PrePersist
+	/*@PrePersist
 	public void prePersist() {
 		if (createAt == null) {
 			createAt = new Date();
         }
-	}
+	}*/
 
 	public Long getId() {
 		return id;

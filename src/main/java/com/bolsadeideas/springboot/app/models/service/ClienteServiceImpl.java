@@ -37,6 +37,12 @@ public class ClienteServiceImpl implements IClienteService {
 		// TODO Auto-generated method stub
 		return (List<Cliente>) clienteDao.findAll();
 	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Page<Cliente> findAll(Pageable pageable) {
+		return clientePageableDao.findAll(pageable);
+	}
 
 	/*@Override
 	@Transactional
@@ -75,12 +81,6 @@ public class ClienteServiceImpl implements IClienteService {
 	public void delete(Long id) {
 		clienteDao.deleteById(id);
 
-	}
-
-	@Override
-	@Transactional(readOnly = true)
-	public Page<Cliente> findAll(Pageable pageable) {
-		return clientePageableDao.findAll(pageable);
 	}
 
 	@Override
