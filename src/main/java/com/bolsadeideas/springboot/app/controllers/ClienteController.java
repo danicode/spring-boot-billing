@@ -70,7 +70,7 @@ public class ClienteController {
 	@Autowired
 	private IUploadFileService uploadFileService;
 
-	@Secured({ "ROLE_USER" })
+	/*@Secured({ "ROLE_USER" })
 	@GetMapping(value = "/uploads/{filename:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String filename) {
 
@@ -86,7 +86,7 @@ public class ClienteController {
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"")
 				.body(recurso);
-	}
+	}*/
 
 	// @PreAuthorize("hasAnyRole(['ROLE_USER, ROLE_ADMIN'])")
 	@PreAuthorize("hasRole('ROLE_USER')")
@@ -206,7 +206,7 @@ public class ClienteController {
 		return "form";
 	}
 
-	@Secured("ROLE_ADMIN")
+	/*@Secured("ROLE_ADMIN")
 	@RequestMapping(value = "/form", method = RequestMethod.POST)
 	public String guardar(@Valid Cliente cliente, BindingResult result, Model model,
 			@RequestParam("file") MultipartFile foto, RedirectAttributes flash, SessionStatus status) {
@@ -265,7 +265,7 @@ public class ClienteController {
 
 		}
 		return "redirect:/listar";
-	}
+	}*/
 
 	private boolean hasRole(String role) {
 		SecurityContext context = SecurityContextHolder.getContext();

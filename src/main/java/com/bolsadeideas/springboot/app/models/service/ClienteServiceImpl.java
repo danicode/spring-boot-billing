@@ -15,6 +15,7 @@ import com.bolsadeideas.springboot.app.models.dao.IProductoDao;
 import com.bolsadeideas.springboot.app.models.entity.Cliente;
 import com.bolsadeideas.springboot.app.models.entity.Factura;
 import com.bolsadeideas.springboot.app.models.entity.Producto;
+import com.bolsadeideas.springboot.app.models.entity.Region;
 
 @Service
 public class ClienteServiceImpl implements IClienteService {
@@ -34,7 +35,6 @@ public class ClienteServiceImpl implements IClienteService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Cliente> findAll() {
-		// TODO Auto-generated method stub
 		return (List<Cliente>) clienteDao.findAll();
 	}
 	
@@ -60,7 +60,6 @@ public class ClienteServiceImpl implements IClienteService {
 	@Override
 	@Transactional(readOnly = true)
 	public Cliente findOne(Long id) {
-		// TODO Auto-generated method stub
 		return clienteDao.findById(id).orElse(null);
 	}
 	
@@ -98,14 +97,12 @@ public class ClienteServiceImpl implements IClienteService {
 	@Override
 	@Transactional(readOnly=true)
 	public Producto findProductoById(Long id) {
-		// TODO Auto-generated method stub
 		return productoDao.findById(id).orElse(null);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public Factura findFacturaById(Long id) {
-		// TODO Auto-generated method stub
 		return facturaDao.findById(id).orElse(null);
 	}
 
@@ -119,5 +116,11 @@ public class ClienteServiceImpl implements IClienteService {
 	@Transactional(readOnly=true)
 	public Factura fetchFacturaByIdWithClienteWhithItemFacturaWithProducto(Long id) {
 		return facturaDao.fetchByIdWithClienteWhithItemFacturaWithProducto(id);
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public List<Region> findAllRegiones() {
+		return clienteDao.findAllRegions();
 	}
 }

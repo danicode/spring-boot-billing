@@ -1,29 +1,41 @@
 /* Populate tables */
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Andres', 'Guzman', 'profesor@bolsadeideas.com', '2017-08-01', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('John', 'Doe', 'john.doe@gmail.com', '2017-08-02', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Linus', 'Torvalds', 'linus.torvalds@gmail.com', '2017-08-03', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Jane', 'Doe', 'jane.doe@gmail.com', '2017-08-04', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Rasmus', 'Lerdorf', 'rasmus.lerdorf@gmail.com', '2017-08-05', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Erich', 'Gamma', 'erich.gamma@gmail.com', '2017-08-06', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Richard', 'Helm', 'richard.helm@gmail.com', '2017-08-07', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Ralph', 'Johnson', 'ralph.johnson@gmail.com', '2017-08-08', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('John', 'Vlissides', 'john.vlissides@gmail.com', '2017-08-09', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('James', 'Gosling', 'james.gosling@gmail.com', '2017-08-010', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Bruce', 'Lee', 'bruce.lee@gmail.com', '2017-08-11', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Johnny', 'Doe', 'johnny.doe@gmail.com', '2017-08-12', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('John', 'Roe', 'john.roe@gmail.com', '2017-08-13', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Jane', 'Roe', 'jane.roe@gmail.com', '2017-08-14', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Richard', 'Doe', 'richard.doe@gmail.com', '2017-08-15', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Janie', 'Doe', 'janie.doe@gmail.com', '2017-08-16', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Phillip', 'Webb', 'phillip.webb@gmail.com', '2017-08-17', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Stephane', 'Nicoll', 'stephane.nicoll@gmail.com', '2017-08-18', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Sam', 'Brannen', 'sam.brannen@gmail.com', '2017-08-19', '');  
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Juergen', 'Hoeller', 'juergen.Hoeller@gmail.com', '2017-08-20', ''); 
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Janie', 'Roe', 'janie.roe@gmail.com', '2017-08-21', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('John', 'Smith', 'john.smith@gmail.com', '2017-08-22', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Joe', 'Bloggs', 'joe.bloggs@gmail.com', '2017-08-23', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('John', 'Stiles', 'john.stiles@gmail.com', '2017-08-24', '');
-INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Richard', 'Roe', 'stiles.roe@gmail.com', '2017-08-25', '');
+
+/* Populate tables regiones */
+INSERT INTO regiones (id, nombre) VALUES (1, 'Sudamérica');
+INSERT INTO regiones (id, nombre) VALUES (2, 'Centroamérica');
+INSERT INTO regiones (id, nombre) VALUES (3, 'Norteamérica');
+INSERT INTO regiones (id, nombre) VALUES (4, 'Europa');
+INSERT INTO regiones (id, nombre) VALUES (5, 'Asia');
+INSERT INTO regiones (id, nombre) VALUES (6, 'Africa');
+INSERT INTO regiones (id, nombre) VALUES (7, 'Oceanía');
+INSERT INTO regiones (id, nombre) VALUES (8, 'Antártida');
+
+/* Populate tabla clientes */
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(1, 'Andres', 'Guzman', 'profesor@bolsadeideas.com', '2017-08-01', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(1, 'John', 'Doe', 'john.doe@gmail.com', '2017-08-02', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(2, 'Linus', 'Torvalds', 'linus.torvalds@gmail.com', '2017-08-03', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(2, 'Jane', 'Doe', 'jane.doe@gmail.com', '2017-08-04', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(4, 'Rasmus', 'Lerdorf', 'rasmus.lerdorf@gmail.com', '2017-08-05', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(4, 'Erich', 'Gamma', 'erich.gamma@gmail.com', '2017-08-06', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(4, 'Richard', 'Helm', 'richard.helm@gmail.com', '2017-08-07', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(3, 'Ralph', 'Johnson', 'ralph.johnson@gmail.com', '2017-08-08', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(3, 'John', 'Vlissides', 'john.vlissides@gmail.com', '2017-08-09', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(3, 'James', 'Gosling', 'james.gosling@gmail.com', '2017-08-010', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(3, 'Bruce', 'Lee', 'bruce.lee@gmail.com', '2017-08-11', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(5, 'Johnny', 'Doe', 'johnny.doe@gmail.com', '2017-08-12', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(5, 'John', 'Roe', 'john.roe@gmail.com', '2017-08-13', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(6, 'Jane', 'Roe', 'jane.roe@gmail.com', '2017-08-14', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(6, 'Richard', 'Doe', 'richard.doe@gmail.com', '2017-08-15', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(6, 'Janie', 'Doe', 'janie.doe@gmail.com', '2017-08-16', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(7, 'Phillip', 'Webb', 'phillip.webb@gmail.com', '2017-08-17', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(7, 'Stephane', 'Nicoll', 'stephane.nicoll@gmail.com', '2017-08-18', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(7, 'Sam', 'Brannen', 'sam.brannen@gmail.com', '2017-08-19', '');  
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(7, 'Juergen', 'Hoeller', 'juergen.Hoeller@gmail.com', '2017-08-20', ''); 
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(8, 'Janie', 'Roe', 'janie.roe@gmail.com', '2017-08-21', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(8, 'John', 'Smith', 'john.smith@gmail.com', '2017-08-22', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(8, 'Joe', 'Bloggs', 'joe.bloggs@gmail.com', '2017-08-23', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(8, 'John', 'Stiles', 'john.stiles@gmail.com', '2017-08-24', '');
+INSERT INTO clientes (region_id, nombre, apellido, email, create_at, foto) VALUES(8, 'Richard', 'Roe', 'stiles.roe@gmail.com', '2017-08-25', '');
 
 /* Populate tabla productos */
 INSERT INTO productos (nombre, precio, create_at) VALUES('Panasonic Pantalla LCD', 259990, NOW());

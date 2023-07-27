@@ -30,7 +30,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 		
 		// Configura las rutas públicas que no requieren autorización
         //this.publicEndpoints = Arrays.asList("/listar-rest", "/api/clientes/**", "/api/clientes**");
-        this.publicEndpoints = Arrays.asList("/listar-rest", "/api/clientes/**");
+        this.publicEndpoints = Arrays.asList("/listar-rest", "/api/clientes/**", "/images/**");
 	}
 
 	@Override

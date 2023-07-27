@@ -12,6 +12,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 //import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
@@ -24,6 +26,7 @@ import jakarta.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 //import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -54,23 +57,35 @@ public class Cliente implements Serializable {
 	private Date createAt;
 
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	//@JsonIgnore
-	//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	// @JsonIgnore
+	// @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@JsonManagedReference
 	private List<Factura> facturas;
 
 	private String foto;
 
+	@NotNull(message = "No puede estar vacío")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "region_id")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Region region;
+
+	public Region getRegion() {
+		return region;
+	}
+
+	public void setRegion(Region region) {
+		this.region = region;
+	}
+
 	public Cliente() {
 		facturas = new ArrayList<Factura>();
 	}
 
-	/*@PrePersist
-	public void prePersist() {
-		if (createAt == null) {
-			createAt = new Date();
-        }
-	}*/
+	/*
+	 * @PrePersist public void prePersist() { if (createAt == null) { createAt = new
+	 * Date(); } }
+	 */
 
 	public Long getId() {
 		return id;
@@ -135,11 +150,11 @@ public class Cliente implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 	@Override
 	public String toString() {
 		return nombre + " " + apellido;
 	}
-	
+
 	private static final long serialVersionUID = 1L;
 }

@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import com.bolsadeideas.springboot.app.models.entity.Cliente;
 import com.bolsadeideas.springboot.app.models.entity.Factura;
 import com.bolsadeideas.springboot.app.models.entity.Producto;
+import com.bolsadeideas.springboot.app.models.entity.Region;
 
 public interface IClienteService {
 
@@ -39,4 +40,5 @@ public interface IClienteService {
 	
 	public Factura fetchFacturaByIdWithClienteWhithItemFacturaWithProducto(Long id);
 
+	public List<Region> findAllRegiones();
 }
